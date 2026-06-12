@@ -15,15 +15,30 @@ path when the Codespace finishes building, run `pip install -r requirements.txt`
 
 ## The problem
 
-Tunnl has just received a new feed of Household TV Viewership data. We would like 
-you to help us parse this data so we can gain insights into what households are 
-watching. This will help us advise our clients where they should be running their
-ads. 
+Tunnl has just received a new feed of **Household TV Viewership** data, and we'd
+like your help turning it into insights about what NY households are watching —
+the kind of insight we use to advise clients on where and when to run their ads.
+
+You'll be working with two data sets:
+
+- **The household universe** (`households.csv`) — every NY household we measure,
+  each with its zip code.
+  Columns: 
+- **A week of viewership** (`viewership.csv`) — one row per continuous tune-in
+  event for the week of **2024-01-15 through 2024-01-21**: which household
+  watched which network, and the start/end time of each session.
+
+Both files are already parsed for you (see "The data" under Part 1 below) — you
+won't need to write any CSV parsing.
+
+This is a **multi-part exercise** that starts simple and builds from there. Each
+part is revealed once you finish the one before it, so focus on the part in front
+of you rather than designing for what might come later. Let's start with **Part 1**.
 
 # Part 1
 
-We want to know our weekly **reach** — what percentage of NY households
-watched TV during this week's worth of data?
+We want you to calculate our weekly **reach** — what percentage of the total NY households
+watched any amount of TV during this time period?
 
 You're given two input files:
 
@@ -41,53 +56,27 @@ Feel free to look through the csv files to view the raw data.
 **Your task:** implement `compute_reach()` in `solution.py` so it returns
 the reach as a `float` between `0.0` and `1.0`.
 
-You can run `solution.py` to see your result against the real data:
+You can run `solution.py` to see your result against the real data. The `__main__`
+block has already been defined to run your Part 1 function passing in the CSV data
+for households and viewership.
 
-```python
-# add at the bottom of solution.py
-if __name__ == "__main__":
-    from data import load_households, load_viewership
-    households = load_households()
-    viewership = load_viewership()
-    print(f"Weekly reach: {compute_reach(households, viewership):.1%}")
-```
-
-Write your tests in `tests/` against `compute_reach()` directly, using
-hand-built lists of `Household` and `ViewershipEvent` records — that lets
+If you'd like, you can write extra tests in `tests/` against `compute_reach()` 
+directly, using hand-built lists of `Household` and `ViewershipEvent` records — that lets
 you cover edge cases without depending on the real CSVs.
 
 # Part 2 and beyond...
 Your interviewer will reveal the next steps once we are finished with Part 1!
-
-You'll implement your solution in `solution.py` (and any additional files you
-want to create).
 
 ## How we'll evaluate this
 
 We're looking at **both your implementation and your tests**. Specifically:
 
 - **Correctness** — does your solution actually work, including on edge cases?
-- **Test design** — what cases did you choose to cover, and what does that say
-  about how you think about correctness? A good test suite often reveals more
-  about an engineer's thinking than the implementation does.
-- **Code clarity** — would someone else on the team be able to read and modify
-  this in six months?
 - **How you work** — talking through your decisions, asking clarifying
   questions, and reasoning out loud are all encouraged.
+- **Code clarity** — would someone else on the team be able to read and modify
+  this in six months?
 
-You don't need to write tests first — but we would like you to write
-tests.
-
-## Running tests
-
-From the repo root:
-
-```bash
-pytest                       # run everything
-pytest -v                    # verbose
-pytest tests/test_foo.py     # one file
-pytest -k "name_substring"   # filter by test name
-```
 
 ## Ground rules
 
@@ -102,3 +91,14 @@ pytest -k "name_substring"   # filter by test name
   you.
 
 Good luck!
+
+## Running tests
+
+From the repo root:
+
+```bash
+pytest                       # run everything
+pytest -v                    # verbose
+pytest tests/test_foo.py     # one file
+pytest -k "name_substring"   # filter by test name
+```
