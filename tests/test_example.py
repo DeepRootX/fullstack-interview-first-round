@@ -9,9 +9,9 @@ Or to watch a specific file:
     pytest tests/test_example.py -v
 """
 
-# from solution import your_function_here
+from solution import compute_reach
 
 
-def test_pytest_is_wired_up():
-    """Sanity check — confirms pytest can discover and run tests."""
-    assert 1 + 1 == 2
+def test_compute_reach():
+    # TODO: add tests here
+    pass
