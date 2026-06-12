@@ -22,13 +22,13 @@ ads.
 
 # Part 1
 
-We want to know our weekly **reach** — what fraction of the panel watched
-any TV at all over the past week.
+We want to know our weekly **reach** — what percentage of NY households
+watched TV during this week's worth of data?
 
 You're given two input files:
 
 - `households.csv` — the universe of NY households we measure. Columns:
-  `household_id`, `dma_id`.
+  `household_id`, `zip_code`.
 - `viewership.csv` — one row per continuous tune-in event for the week of
   **2024-01-15 through 2024-01-21**. Columns: `household_id`, `network`,
   `start_time`, `end_time`.
@@ -36,6 +36,7 @@ You're given two input files:
 The data is parsed for you. Use `load_households()` and `load_viewership()`
 from `data.py` to get back `list[Household]` and `list[ViewershipEvent]`
 (both defined in `models.py`). You don't need to write any CSV-parsing code.
+Feel free to look through the csv files to view the raw data.
 
 **Your task:** implement `compute_reach()` in `solution.py` so it returns
 the reach as a `float` between `0.0` and `1.0`.
