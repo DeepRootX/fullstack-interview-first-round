@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Interviewer-only reference tests (kept locally, never shipped to candidates)
+tests_internal/
+
