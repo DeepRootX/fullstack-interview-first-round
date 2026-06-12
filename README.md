@@ -89,9 +89,6 @@ pytest tests/test_foo.py     # one file
 pytest -k "name_substring"   # filter by test name
 ```
 
-A sanity-check test in `tests/test_example.py` confirms pytest is wired up.
-You can delete it or replace it once you start writing real tests.
-
 ## Ground rules
 
 - **No AI assistants.** Copilot and other AI extensions are disabled in this
